@@ -6,22 +6,12 @@
 #include "GameFramework/Actor.h"
 #include "Components/ArrowComponent.h"
 #include "Components/PointLightComponent.h"
-#include "CPPComponent.generated.h" //絶対に下にする。(最後に記述インクルードする)
-
-
+#include "CPPConstructionScript.generated.h"
 
 UCLASS()
-class UEC_LECTURE_API ACPPComponent : public AActor
+class UEC_LECTURE_API ACPPConstructionScript : public AActor
 {
 	GENERATED_BODY()
-
-public:
-	// Sets default values for this actor's properties
-	ACPPComponent();
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
 private:
 	// PrintString関数のDurationに設定する変数
@@ -29,9 +19,13 @@ private:
 
 	// PrintString関数のTextColorに設定する変数
 	const FLinearColor TextColor = FLinearColor(0.0, 0.66, 1.0);
-
 public:
+	// Sets default values for this actor's properties
+	ACPPConstructionScript();
 
+	//↑　関数宣言
+
+	//↓変数、型の宣言　
 	USceneComponent* DefaultSceneRoot;
 
 	// StaticMesh Component //常に使うはずk
@@ -45,5 +39,20 @@ public:
 	UPROPERTY(EditAnywhere)
 		UPointLightComponent* PointLight;
 
+	UPROPERTY(EditAnywhere, Category = "Point Light")
+		bool bIsVisible = false;
+
+	UPROPERTY(EditAnywhere, Category = "Point Light")
+		float Intensity = 5000.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Point Light")
+		FLinearColor LightColor = FLinearColor::White;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// ConstructionScript
+	virtual void OnConstruction(const FTransform& Transform) override;
 
 };

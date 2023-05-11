@@ -1,12 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "CPPComponent.h"
+#include "CPPConstructionScript.h"
 #include "Kismet/KismetSystemLibrary.h"
 
-
-
-ACPPComponent::ACPPComponent()
+// Sets default values
+ACPPConstructionScript::ACPPConstructionScript()
 {
 	// SceneComponentをRootComponentに設定する。
 	DefaultSceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComponent"));
@@ -44,19 +43,31 @@ ACPPComponent::ACPPComponent()
 
 }
 
-
-
 // Called when the game starts or when spawned
-void ACPPComponent::BeginPlay()
+void ACPPConstructionScript::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	// 変数を作成する
 	FString Message = "C++ Hello World!";
 
 	// PrintStringノードと同じ処理
 	// UKismetSystemLibraryクラスのPrintString関数を呼び出す
-	UKismetSystemLibrary::PrintString(this,Message,true,true,TextColor,Duration);
-	
+	UKismetSystemLibrary::PrintString(this, Message, true, true, TextColor, Duration);
 }
+
+void ACPPConstructionScript::OnConstruction(const FTransform& Transform)
+{
+	// PointLightの表示・非表示を設定
+	PointLight->SetVisibility(bIsVisible);
+
+	// PointLightの強さを設定
+	PointLight->SetIntensity(Intensity);
+
+	// PointLightのLightColorを設定
+	PointLight->SetLightColor(LightColor);
+
+}
+
+
 
