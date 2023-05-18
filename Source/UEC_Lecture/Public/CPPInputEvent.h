@@ -48,4 +48,9 @@ private:
 	void PressedH();
 	void ReleasedH();
 
+	//アクションマッピング
+	void PressedActionPrintCalcResult();
+	//軸マッピング
+	void AxisPrint(float f);
+
 };
