@@ -23,11 +23,14 @@ public:
 	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* StaticMesh;
 
-	// 親クラスのメンバ関数 
+	// 親クラスのメンバ関数
+	UFUNCTION(BlueprintCallable, Category = CPP_And_Blueprint)
 	void CallParentFunc();
 
+
 	// 親クラスのデータメンバ
-	int VarParentNum = 10;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Default)
+		int VarParentNum = 10;
 
 protected:
 	// Called when the game starts or when spawned

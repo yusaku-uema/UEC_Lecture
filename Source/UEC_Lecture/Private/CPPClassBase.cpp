@@ -28,8 +28,11 @@ ACPPClassBase::ACPPClassBase()
 // Called when the game starts or when spawned
 void ACPPClassBase::BeginPlay()
 {
-	Super::BeginPlay();
+	/*Super::BeginPlay();
 
+	CallParentFunc();*/
+
+	// ©•ª‚Ìƒƒ“ƒoŠÖ”‚ğŒÄ‚Ño‚·
 	CallParentFunc();
 	
 }
