@@ -38,11 +38,11 @@ protected:
 private:
 
 	// 親クラスのメンバ関数(Private)
-	UFUNCTION(BlueprintCallable, Category = CPP_And_Blueprint)
+	//UFUNCTION(BlueprintCallable, Category = CPP_And_Blueprint)
 		void CallPrivateFunc();
 
 	// 親クラスのデータメンバ(Private)
-	UPROPERTY(EditAnywhere, Category = Default)
+	//UPROPERTY(EditAnywhere, Category = Default)
 		int VarPrivateNum = 30;
 };
 
