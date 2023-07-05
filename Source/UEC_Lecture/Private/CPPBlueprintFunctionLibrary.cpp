@@ -14,3 +14,8 @@ int UCPPBlueprintFunctionLibrary::Sum(const int A, const int B)
 {
 	return A + B;
 }
+
+int UCPPBlueprintFunctionLibrary::yusaku(const int A, const int B)
+{
+	return A + B;
+}

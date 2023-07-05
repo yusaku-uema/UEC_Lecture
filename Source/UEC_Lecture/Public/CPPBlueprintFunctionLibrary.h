@@ -21,4 +21,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "CPPBlueprintFunctionLibrary", BlueprintPure)
 		static int Sum(const int A, const int B);
 
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static int yusaku(const int A, const int B);
+
+
+	UPROPERTY(VisibleDefaultsOnly)
+		int yusaku_a;
+
 };
